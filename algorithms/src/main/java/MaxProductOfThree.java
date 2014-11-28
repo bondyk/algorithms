@@ -10,6 +10,7 @@ public class MaxProductOfThree {
         System.out.println(solution(new int[]{-3, 1, 2, -2, 5, 6}));
         System.out.println(solution(new int[]{-30, -10, -2, -2, 5, 6}));
         System.out.println(solution(new int[]{-30, -1, -2, -2, 5, 60}));
+        System.out.println(solution(new int[]{-30, -1, -2, -2, -1, -3}));
     }
 
     public static int solution(int[] A) {

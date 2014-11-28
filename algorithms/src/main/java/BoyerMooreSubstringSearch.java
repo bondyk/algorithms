@@ -29,7 +29,6 @@ public class BoyerMooreSubstringSearch {
         for (int i = 0; i <= n - m; i += skip) {
             skip = 0;
             for (int j = m - 1; j >= 0; j--) {
-//                System.out.println("compare: " + text.charAt(i + j) + " =? " + pattern.charAt(j));
                 if (text.charAt(i + j) != pattern.charAt(j)) {
                     skip = j - right[text.charAt(i + j)];
                     if (skip < 1) skip = 1;

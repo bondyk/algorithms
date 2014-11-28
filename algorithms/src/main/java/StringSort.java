@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Created by y.bondaruk on 24.11.2014.
+ * Least Significant Digit first algorithm for sorting strings
  */
 public class StringSort {
 
