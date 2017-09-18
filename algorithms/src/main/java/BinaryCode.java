@@ -33,7 +33,7 @@ import java.util.Arrays;
      We know that one of the digits must be '1', and the other must be '0'. We return both cases.
  2) "22111"
      Returns: { "NONE",  "11001" }
-     Since the first digit of the encrypted string is '2', the first two digits of the original string must be '1'. Our test fails when we try to assume that P[0] = 0.
+     Since the first digit of the encrypted string is '2', the first two digits of the original string must be '1'. Our Maze fails when we try to assume that P[0] = 0.
  3) "123210120"
      Returns: { "NONE",  "NONE" }
      This is the same as the first example, but the rightmost digit has been changed to something inconsistent with the rest of the original string. No solutions are possible.

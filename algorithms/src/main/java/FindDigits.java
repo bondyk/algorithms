@@ -10,12 +10,13 @@ import java.io.InputStreamReader;
 
  Note
 
- If the same number is repeated twice at different positions, it should be counted twice, e.g., For N=122, 2 divides 122 exactly and occurs at ones' and tens' position. So it should be counted twice. So for this case, our answer is 3.
+ If the same number is repeated twice at different positions, it should be counted twice, e.g.,
+ For N=122, 2 divides 122 exactly and occurs at ones' and tens' position. So it should be counted twice. So for this case, our answer is 3.
  Division by 0 is undefined.
 
  Input Format
 
- The first line contains T (number of test cases) followed by T lines (each containing an integer N).
+ The first line contains T (number of Maze cases) followed by T lines (each containing an integer N).
 
  Constraints
  1 <=T <= 15
@@ -23,7 +24,7 @@ import java.io.InputStreamReader;
 
  Output Format
 
- For each test case, display the count of digits in N that exactly divide N in separate line.
+ For each Maze case, display the count of digits in N that exactly divide N in separate line.
  */
 public class FindDigits {
 
