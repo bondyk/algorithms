@@ -1,17 +1,11 @@
 package com.bondyk.ctci;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeMap;
-
 /**
  * Imagine a histogram (bar graph). Design an algorithm to compute the
  volume of water it could hold if someone poured water across the top. You can assume that each
  histogram bar has width 1.
  EXAMPLE
  input{0, 0 , 4, 0, 0, 6, 0, 0, 3, 0, 5, 0 , 1, 0, 0, 0}
- (Black bars are the histogram. Gray is water.)
  Output:26
  */
 //TrappingWater -> www.geeksforgeeks.org/trapping-rain-water/
@@ -22,7 +16,6 @@ public class VolumeOfHistogram {
         System.out.println(getVolume(new int[] {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})); //6
         System.out.println(getVolume(new int[] {3, 0, 0, 2, 0, 4})); //10
     }
-
 
     private static int getVolume(int[] input) {
 
@@ -44,8 +37,5 @@ public class VolumeOfHistogram {
         }
 
         return volume;
-
     }
-
-
 }

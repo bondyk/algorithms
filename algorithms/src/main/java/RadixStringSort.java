@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * Least Significant Digit first algorithm for sorting strings
  */
-public class StringSort {
+public class RadixStringSort {
 
     public static void main(String[] args) {
         String[] strings = new String[] {

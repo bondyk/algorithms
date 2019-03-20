@@ -1,8 +1,7 @@
 package com.bondyk.ctci;
 
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * A circus is designing a tower routine consisting of people standing atop one another's
@@ -45,11 +44,10 @@ public class CircusTower {
         if (men.length <= 1) return men.length;
 
         //sort by 1)weight, 2)height
-        Arrays.sort(men, (o1, o2) -> {
-            int cmp = Integer.compare(o1.weight, o2.weight);
-            if (cmp == 0) cmp = Integer.compare(o1.height, o2.height);
-            return cmp;
-        });
+        Arrays.sort(men,
+            Comparator.comparingInt((Man o) -> o.weight)
+                .thenComparingInt(o -> o.height)
+        );
 
         System.out.println(Arrays.toString(men));
 

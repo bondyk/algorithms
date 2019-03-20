@@ -1,8 +1,13 @@
 package com.bondyk.ctci;
 
-
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * On old cell phones, users typed on a numeric keypad and the phone would provide a list of words
@@ -56,7 +61,7 @@ public class T9 {
      Our algorithm now has a few steps:
      Pre-Computation:
      1. Create a hash table that maps from a sequence of digits to a list of strings.
-     2. Go through each word in the dictionary and convert it to its T9 representation (e.g., APPLE - > 27753).
+     2. Go through each word in the dictionary and decode it to its T9 representation (e.g., APPLE - > 27753).
      Store each of these in the above hash table. For example, 8733 would map to {used, tree}.
      */
 
@@ -136,11 +141,8 @@ public class T9 {
                     }
 
                 }
-
             }
-
         }
-
     }
 
     private static class Letter {

@@ -1,31 +1,35 @@
 package com.bondyk.ctci;
 
+import helper.TreeNode;
+
 /**
  * Write method to determine if tree is mirror.
 
- X
- X. X. Is mirror
+   X
+ X   X
+ Is mirror
 
+     X
+   X  X
  X
- X. X
- X. Not mirror
+ Not mirror
  */
 
 public class TreeMirror {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode();
-        root.left = new TreeNode();
-        root.right = new TreeNode();
-        root.left.left = new TreeNode();
-        root.right.right = new TreeNode();
-        root.left.right = new TreeNode();
-        root.right.left = new TreeNode();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.right.right = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
 
         System.out.println(isMirror(root));
-        root.right.left.left = new TreeNode();
+        root.right.left.left = new TreeNode(0);
         System.out.println(isMirror(root));
-        root.left.right.right = new TreeNode();
+        root.left.right.right = new TreeNode(0);
         System.out.println(isMirror(root));
     }
 
@@ -38,11 +42,6 @@ public class TreeMirror {
         if (left == null || right == null) return false;
 
         return isMirror(left.left, right.right) && isMirror(left.right, right.left);
-    }
-
-    private static class TreeNode {
-        private TreeNode left;
-        private TreeNode right;
     }
 
 }

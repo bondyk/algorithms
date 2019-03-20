@@ -11,6 +11,8 @@ import java.util.Map;
  Input: 1 2 5 9 5 9 5 5 5
  Output: 5
 
+ See also Dominator
+
  */
 public class MajorityElement {
 
@@ -37,8 +39,8 @@ public class MajorityElement {
             }
 
             if (map.size() == 3) return 0;
-            for (Map.Entry<Integer, Integer> integerIntegerEntry : map.entrySet()) {
-                if (integerIntegerEntry.getValue() > 1) return integerIntegerEntry.getKey();
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                if (entry.getValue() > 1) return entry.getKey();
             }
 
             return -1;

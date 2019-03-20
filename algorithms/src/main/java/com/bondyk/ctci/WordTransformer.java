@@ -16,6 +16,7 @@ public class WordTransformer {
 
     public static void main(String[] args) {
         System.out.println(transform(new String[] {"DAMP", "LAMP", "LIMP", "LIME", "LIKE", "LITE"}, "DAMP", "LIKE"));
+        System.out.println("--------------------------");
         System.out.println(transform(new String[] {"DAMP", "LAMP", "LIMP", "RAMP", "LIME", "LIKE", "ROME", "ROMP"}, "DAMP", "ROME"));
     }
 
@@ -71,9 +72,6 @@ public class WordTransformer {
 
         return letter.wordEnd;
     }
-
-
-
 
     private static class Trie extends Letter {
 

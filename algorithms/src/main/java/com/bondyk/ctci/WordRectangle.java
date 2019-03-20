@@ -38,10 +38,7 @@ public class WordRectangle {
                 char[][] rectangle = build(word, triesMap);
                 if (rectangle != null) return rectangle;
             }
-
-
         }
-
 
         return null;
     }
@@ -124,11 +121,8 @@ public class WordRectangle {
                 } else {
                     candidates = candidates.get(c).children;
                 }
-
             }
-
         }
-
     }
 
     private static class Letter {
@@ -139,5 +133,4 @@ public class WordRectangle {
             this.wordEnd = wordEnd;
         }
     }
-
 }

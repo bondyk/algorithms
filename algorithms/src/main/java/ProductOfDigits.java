@@ -7,13 +7,13 @@ public class ProductOfDigits {
 
     public static void main(String[] args) {
         ProductOfDigits task = new ProductOfDigits();
-        System.out.println("Expected 1. Actual: " + task.smallestNumber(1));
-        System.out.println("Expected 2. Actual: " + task.smallestNumber(10));
-        System.out.println("Expected -1. Actual: " + task.smallestNumber(26));
-        System.out.println("Expected 3. Actual: " + task.smallestNumber(100));
+//        System.out.println("Expected 1. Actual: " + task.smallestNumber(1));
+//        System.out.println("Expected 2. Actual: " + task.smallestNumber(10));
+//        System.out.println("Expected -1. Actual: " + task.smallestNumber(26));
+//        System.out.println("Expected 3. Actual: " + task.smallestNumber(100));
         System.out.println("Expected 4. Actual: " + task.smallestNumber(2520));
-        System.out.println("Expected 4. Actual: " + task.smallestNumber(864));
-        System.out.println("Expected 1. Actual: " + task.smallestNumber(17));
+//        System.out.println("Expected 4. Actual: " + task.smallestNumber(864));
+//        System.out.println("Expected -1. Actual: " + task.smallestNumber(17));
     }
 
     public int smallestNumber(int N) {
@@ -24,11 +24,12 @@ public class ProductOfDigits {
         int number = N;
         int count = 0;
         for (int i = 9; i > 1; i--) {
+//            System.out.println("-" + i + "-");
             if (number % i == 0) {
                 count++;
                 number = number / i;
                 System.out.print(i);
-                i = 9;
+                i = 10;
             }
         }
 

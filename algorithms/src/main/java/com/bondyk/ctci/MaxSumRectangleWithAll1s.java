@@ -5,15 +5,18 @@ import java.util.Arrays;
 /**
  * Given a binary matrix, find the maximum size rectangle binary-sub-matrix with all 1’s.
 
- Input :   0 1 1 0
+ Input :
+ 0 1 1 0
  1 1 1 1
  1 1 1 1
  1 1 0 0
 
- Output :  1 1 1 1
+ Output :
+ 1 1 1 1
  1 1 1 1
 
- Using this method another task can be solved: "Largest Rectangular Area in a Histogram" - http://www.geeksforgeeks.org/largest-rectangle-under-histogram/
+ Using this method another task can be solved: "Largest Rectangular Area in a Histogram" -
+ http://www.geeksforgeeks.org/largest-rectangle-under-histogram/
  Build array from 0s and 1s:
  1 0 0 0 0 0
  1 0 0 1 0 0
@@ -37,11 +40,17 @@ public class MaxSumRectangleWithAll1s {
                 {1, 1, 1, 0},
                 {1, 1, 0, 0}
         });
+        printMaxSumRectangle(new int[][] {
+                {1, 0, 1, 0, 0} ,
+                {1, 0, 1, 1, 1},
+                {1, 1, 1, 1, 1},
+                {1, 0, 0, 1, 0}
+        });
     }
 
     private static void printMaxSumRectangle(int[][] array) {
 
-        int maxRect = Integer.MIN_VALUE;
+        int maxRect = 0;
         int bestRowStart = -1;
         int bestRowEnd = -1;
         int bestColStart = -1;
@@ -87,5 +96,7 @@ public class MaxSumRectangleWithAll1s {
         for (int i = bestRowStart; i <= bestRowEnd; i++) {
             System.out.println(Arrays.toString(Arrays.copyOfRange(array[i], bestColStart, bestColEnd + 1)));
         }
+
+        System.out.println((bestRowEnd - bestRowStart + 1) * (bestColEnd - bestColStart + 1));
     }
 }

@@ -34,7 +34,7 @@ public class AngryBirdsScoreSorting {
 
     public static void main(String[] args) {
 
-        System.out.printf(Arrays.toString(sortScores(new int[] {37, 89, 41, 65, 91, 53, 41, 89, 99}, 100)));
+        System.out.println(Arrays.toString(sortScores(new int[] {37, 89, 41, 65, 91, 53, 41, 89, 99}, 100)));
     }
 
     private static int[] sortScores(int[] unsortedScores, int maxScore) {

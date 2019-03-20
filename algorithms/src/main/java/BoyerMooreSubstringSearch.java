@@ -1,5 +1,5 @@
 /**
- * Boyer-Moore substring search (mismatched character heuristic)
+ * Boyer-Moore substring search (bad character heuristic)
  */
 public class BoyerMooreSubstringSearch {
 

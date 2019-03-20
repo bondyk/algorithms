@@ -1,6 +1,5 @@
 package com.bondyk.ctci;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**

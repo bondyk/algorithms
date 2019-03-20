@@ -14,6 +14,7 @@ package com.bondyk.ctci;
  hit
  Write a method that, given a guess and a solution, returns the number of hits and pseudo-hits.
  */
+
 public class MasterMind {
 
     private static final byte R = 1;

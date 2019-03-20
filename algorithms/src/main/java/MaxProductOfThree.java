@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Created by y.bondaruk on 24.09.2014.
+ * Given an integer array, find a maximum product of a triplet in array.
  */
 public class MaxProductOfThree {
 

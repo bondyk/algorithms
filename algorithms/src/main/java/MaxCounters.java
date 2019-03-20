@@ -19,7 +19,7 @@ public class MaxCounters {
         final int condition = N + 1;
         int currentMax = 0;
         int lastUpdate = 0;
-        int result[] = new int[N];
+        int[] result = new int[N];
 
         for (int i = 0; i < A.length; i++) {
             int currentValue = A[i];

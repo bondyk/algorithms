@@ -15,9 +15,16 @@ import java.util.Arrays;
  Assume P[0] = 1.
  Because Q[0] = P[0] + P[1] = 1 + P[1] = 1, we know that P[1] = 0.
  Because Q[1] = P[0] + P[1] + P[2] = 1 + 0 + P[2] = 2, we know that P[2] = 1.
- Now note that Q[2] = P[1] + P[2] + P[3] = 0 + 1 + P[3] = 3, which leads us to the conclusion that P[3] = 2. However, this violates the fact that each character in the original string must be '0' or '1'. Therefore, there exists no such original string P where the first digit is '1'.
- Note that this algorithm produces at most two decodings for any given encrypted string. There can never be more than one possible way to decode a string once the first binary digit is set.
- Given a String message, containing the encrypted string, return a String[] with exactly two elements. The first element should contain the decrypted string assuming the first character is '0'; the second element should assume the first character is '1'. If one of the tests fails, return the string "NONE" in its place. For the above example, you should return {"011100011", "NONE"}.
+ Now note that Q[2] = P[1] + P[2] + P[3] = 0 + 1 + P[3] = 3, which leads us to the conclusion that P[3] = 2.
+ However, this violates the fact that each character in the original string must be '0' or '1'.
+ Therefore, there exists no such original string P where the first digit is '1'.
+ Note that this algorithm produces at most two decodings for any given encrypted string.
+ There can never be more than one possible way to decode a string once the first binary digit is set.
+ Given a String message, containing the encrypted string, return a String[] with exactly two elements.
+ The first element should contain the decrypted string assuming the first character is '0';
+ the second element should assume the first character is '1'.
+ If one of the tests fails, return the string "NONE" in its place.
+ For the above example, you should return {"011100011", "NONE"}.
      
  Time limit (s): 2.000
  Memory limit (MB): 64
@@ -33,10 +40,12 @@ import java.util.Arrays;
      We know that one of the digits must be '1', and the other must be '0'. We return both cases.
  2) "22111"
      Returns: { "NONE",  "11001" }
-     Since the first digit of the encrypted string is '2', the first two digits of the original string must be '1'. Our Maze fails when we try to assume that P[0] = 0.
+     Since the first digit of the encrypted string is '2', the first two digits of the original
+        string must be '1'. Our Maze fails when we try to assume that P[0] = 0.
  3) "123210120"
      Returns: { "NONE",  "NONE" }
-     This is the same as the first example, but the rightmost digit has been changed to something inconsistent with the rest of the original string. No solutions are possible.
+     This is the same as the first example, but the rightmost digit has been changed to something
+        inconsistent with the rest of the original string. No solutions are possible.
  4) "3"
      Returns: { "NONE",  "NONE" }
  5) "12221112222221112221111111112221111"
@@ -53,6 +62,15 @@ public class BinaryCode {
         System.out.println(Arrays.toString(decode("123210120")));//{ "NONE",  "NONE" }
         System.out.println(Arrays.toString(decode("3")));//{ "NONE",  "NONE" }
         System.out.println(Arrays.toString(decode("12221112222221112221111111112221111")));// { "01101001101101001101001001001101001", "10110010110110010110010010010110010" }
+
+        System.out.println("------------------------------");
+
+        System.out.println(Arrays.toString(decode2("123210122")));//{"011100011", "NONE"}
+        System.out.println(Arrays.toString(decode2("11")));//{ "01",  "10" }
+        System.out.println(Arrays.toString(decode2("22111")));//{ "NONE",  "11001" }
+        System.out.println(Arrays.toString(decode2("123210120")));//{ "NONE",  "NONE" }
+        System.out.println(Arrays.toString(decode2("3")));//{ "NONE",  "NONE" }
+        System.out.println(Arrays.toString(decode2("12221112222221112221111111112221111")));// { "01101001101101001101001001001101001", "10110010110110010110010010010110010" }
     }
 
     public static String[] decode(String message) {
@@ -91,5 +109,33 @@ public class BinaryCode {
         }
 
         return arr;
+    }
+
+    private static String[] decode2(String message) {
+        char[] chars = message.toCharArray();
+
+        return new String[] {
+            decode2(chars, 0),
+            decode2(chars, 1)
+        };
+    }
+
+    private static String decode2(char[] chars, int firstValue) {
+        StringBuilder sb = new StringBuilder(String.valueOf(firstValue));
+        int prev = firstValue;
+        int prevPrev = 0;
+        for (int i = 0; i < chars.length; i++) {
+            int encNum = Character.getNumericValue(chars[i]);
+            int curr = encNum - prev - prevPrev;
+            if (curr < 0 || curr > 1) {
+                return "NONE";
+            } else if (i != chars.length - 1) {
+                sb.append(curr);
+            }
+            prevPrev = prev;
+            prev = curr;
+        }
+
+        return sb.toString();
     }
 }

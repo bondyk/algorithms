@@ -32,7 +32,8 @@ public class LettersAndNumbers {
                 from = 0;
                 to = i;
             } else if (prefixSums.containsKey(prefixSum)) {
-                //Sum between elements in prefix-sum is: prefixSum = prefixSum[hi_idx] - prefixSum[low_idx] and first index is prefixSums['prefixSum'] + 1
+                // Sum between elements in prefix-sum is: prefixSum = prefixSum[hi_idx] - prefixSum[low_idx]
+                // and first index is prefixSums['prefixSum'] + 1
                 int fromCandidate = prefixSums.get(prefixSum) + 1;
                 if (to - from < i - fromCandidate) {
                     to = i;

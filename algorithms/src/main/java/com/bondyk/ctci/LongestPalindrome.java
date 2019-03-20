@@ -1,25 +1,35 @@
 package com.bondyk.ctci;
 
-
-import java.util.Arrays;
-
 /**
- * Given a string, find the longest substring which is palindrome. For example, if the given string is “forgeeksskeegfor”, the output should be “geeksskeeg”.
+ * Given a string, find the longest substring which is palindrome.
+ * For example, if the given string is “forgeeksskeegfor”, the output should be “geeksskeeg”.
  */
 public class LongestPalindrome {
 
     public static void main(String[] args) {
+        // More efficient
+        System.out.println(getLongestPalindrome("ABCBA"));
+        System.out.println(getLongestPalindrome("ABCBE"));
         System.out.println(getLongestPalindrome("forgeeksskeegfor"));
         System.out.println(getLongestPalindrome("BBABCBAB"));
+
+        System.out.println("------ Dynamic Programming ------");
+        //Less efficient, using dynamic programming
+        System.out.println(getLongestPalindromeLength("ABCBA"));
+        System.out.println(getLongestPalindromeLength("ABCBE"));
+        System.out.println(getLongestPalindromeLength("forgeeksskeegfor"));
+        System.out.println(getLongestPalindromeLength("BBABCBAB"));
     }
 
     private static int getLongestPalindromeLength(String string) {
+
         //Dynamic programing
         boolean[][] table = new boolean[string.length()][string.length()];
 
-        int longestPalindrome = -1;
+        int longestPalindromeStart = -1;
+        int longestPalindromeEnd = -1;
         char[] chars = string.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
+        for (int i = chars.length - 1; i >= 0; i--) {
             for (int j = i; j < chars.length; j++) {
                 if (j - i == 0) {
                     //1-char string is a palindrome
@@ -27,21 +37,24 @@ public class LongestPalindrome {
                 } else if (j - i == 1) {
                     table[i][j] = chars[i] == chars[j];
                 } else {
-                    table[i][j] = table[i + 1][j - 1] && chars[i] == chars[j];
+                    table[i][j] = chars[i] == chars[j] && (i >= chars.length - 1 || table[i + 1][j - 1]);
                 }
-                if (table[i][j] && longestPalindrome < j - i) {
-                    longestPalindrome = j - i;
-                    System.out.println(string.substring(i, j+1));
+
+                if (table[i][j] && longestPalindromeEnd - longestPalindromeStart < j - i) {
+                    longestPalindromeStart = i;
+                    longestPalindromeEnd = j;
                 }
             }
         }
 
-        return longestPalindrome + 1;
+        return longestPalindromeEnd - longestPalindromeStart + 1;
     }
 
     private static int getLongestPalindrome(String string) {
         char[] chars = string.toCharArray();
 
+//        int longestPalindromeStart = 0;
+//        int longestPalindromeEnd = -1;
         int maxLength = 0;
         for (int i = 0; i < chars.length; i++) {
             //k == 0 - odd palindrome check (AAABAAA)
@@ -54,6 +67,8 @@ public class LongestPalindrome {
                         break;
                     } else if (maxLength < rightIdx - leftIdx + 1) {
                         maxLength = rightIdx - leftIdx + 1;
+//                        longestPalindromeStart = leftIdx;
+//                        longestPalindromeEnd = rightIdx;
                     }
                 }
             }

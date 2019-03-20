@@ -1,8 +1,8 @@
-import java.util.Arrays;
 import java.util.Stack;
 
 /**
- * A zero-indexed array A consisting of N integers is given. The dominator of array A is the value that occurs in more than half of the elements of A.
+ * A zero-indexed array A consisting of N integers is given. The dominator of array A is the value
+ * that occurs in more than half of the elements of A.
  For example, consider array A such that
      A[0] = 3    A[1] = 4    A[2] =  3
      A[3] = 2    A[4] = 3    A[5] = -1
@@ -33,11 +33,12 @@ public class Dominator {
 
     public static void main(String[] args) {
         System.out.println(solution(new int[]{3, 4, 3, 2, 3, -1, 3, 3}));
+        System.out.println(solution2(new int[]{3, 4, 3, 2, 3, -1, 3, 3}));
     }
 
     public static int solution(int[] A) {
 
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < A.length; i++) {
             int aA = A[i];
             if (!stack.isEmpty() && A[stack.peek()] != aA) {
@@ -62,5 +63,31 @@ public class Dominator {
         }
 
         return -1;
+    }
+
+    private static int solution2(int[] A) {
+
+        int count = 1;
+        int candidate = A[0];
+        for (int i = 1; i < A.length; i++) {
+            if (candidate == A[i]) {
+                count++;
+            } else if (count > 0) {
+                count--;
+            } else {
+                candidate = A[i];
+            }
+        }
+
+        int lastCandidateOccurance = -1;
+        int totalCount = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] == candidate) {
+                totalCount++;
+                lastCandidateOccurance = i;
+            }
+        }
+
+        return totalCount >= A.length / 2 ? lastCandidateOccurance : -1;
     }
 }

@@ -3,15 +3,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Problem Statement
-
- You are given a number N. Find the digits in this number that exactly divide N and display their count.
+ * You are given a number N. Find the digits in this number that exactly divide N and display their count.
  For N = 24, there are 2 digits - 2 & 4. Both these digits exactly divide 24. So our answer is 2.
 
  Note
 
  If the same number is repeated twice at different positions, it should be counted twice, e.g.,
- For N=122, 2 divides 122 exactly and occurs at ones' and tens' position. So it should be counted twice. So for this case, our answer is 3.
+ For N=122, 2 divides 122 exactly and occurs at ones' and tens' position. So it should be counted twice.
+ So for this case, our answer is 3.
  Division by 0 is undefined.
 
  Input Format

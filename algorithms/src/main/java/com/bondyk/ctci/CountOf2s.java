@@ -1,9 +1,5 @@
 package com.bondyk.ctci;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Write a method to count the number of 2s between O and n
  */
@@ -27,8 +23,6 @@ public class CountOf2s {
                 cache[i] = cache[i - 1] * 10;
             }
             cache[i] += level;
-
-
         }
 
         //TODO: NOT FINISHED!!!!!!

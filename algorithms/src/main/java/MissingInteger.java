@@ -1,5 +1,3 @@
-import java.util.BitSet;
-
 /**
  *
 
@@ -7,7 +5,8 @@ import java.util.BitSet;
 
  class Solution { public int solution(int[] A); }
 
- that, given a non-empty zero-indexed array A of N integers, returns the minimal positive integer that does not occur in A.
+ that, given a non-empty zero-indexed array A of N integers, returns the minimal
+ positive integer that does not occur in A.
 
  For example, given:
 
@@ -44,11 +43,14 @@ public class MissingInteger {
 
     private static int solve(int[] A) {
 
+        // Use the Pigeonhole principle (https://en.wikipedia.org/wiki/Pigeonhole_principle)
+        // In other words, we can ignore all numbers outside of [1..100,000] since if there is a
+        // missing number than it must be in that range only!
         boolean[] flags = new boolean[A.length + 1];
 
-        for (int i = 0; i < A.length; i++) {
-            if (A[i] > 0 && A[i] <= A.length) {
-                flags[A[i] - 1] = true;
+        for (final int a : A) {
+            if (a > 0 && a <= A.length) {
+                flags[a - 1] = true;
             }
         }
 

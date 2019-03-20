@@ -3,9 +3,10 @@ import java.util.*;
 /**
  * There are N cities numbered 0 to N-1. The j-th character of the i-th element of roads is 'Y'
  * if there is a bidirectional road between cities i and j, and 'N' otherwise.
- * The road connecting cities A and B, where A < B, has a higher priority than the road connecting cities C and D, where C < D,
- * if either A < C or (A = C and B < D). A set of roads is a list of one or more roads sorted from highest to lowest priority.
- * A set S1 has a higher priority than set S2 if road S1[i] has a higher priority than road S2[i], where i is the earliest index at which the two sets differ.
+ * The road connecting cities A and B, where A < B, has a higher priority than the road connecting
+ * cities C and D, where C < D, if either A < C or (A = C and B < D). A set of roads is a list of
+ * one or more roads sorted from highest to lowest priority. A set S1 has a higher priority
+ * than set S2 if road S1[i] has a higher priority than road S2[i], where i is the earliest index at which the two sets differ.
  * A set of roads is called connected if there's a path between any pair of cities containing only the roads from this set.
  * Your task is to find the connected set with the highest priority containing exactly M roads.
  * Return a int[] where the i-th element is the number of roads in that set containing city i as an endpoint.
@@ -16,7 +17,14 @@ public class BestRoads {
 
     public static void main(String[] args) {
         BestRoads task = new BestRoads();
-        System.out.println("Expected {4, 4, 4, 4, 4 }. Actual: " + Arrays.toString(task.numberOfRoads(new String[] {"NYYYY","YNYYY","YYNYY","YYYNY","YYYYN"}, 10)));
+        System.out.println("Expected {4, 4, 4, 4, 4 }. Actual: " + Arrays.toString(task.numberOfRoads(
+            new String[] {
+                "NYYYY",
+                "YNYYY",
+                "YYNYY",
+                "YYYNY",
+                "YYYYN"
+            }, 10)));
     }
 
     public int[] numberOfRoads(String[] roads, int M) {

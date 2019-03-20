@@ -25,7 +25,7 @@ public class SumSwap {
      */
     private static int[] findSwapPair(int[] array1, int[] array2) {
 
-        int difference = getDifference(array1, array2);
+        int difference = getSumDifference(array1, array2);
         if (difference == 0 || difference % 2 != 0) return new int[0];
 
         Arrays.sort(array1);
@@ -60,7 +60,7 @@ public class SumSwap {
      */
     private static int[] findSwapPair1(int[] array1, int[] array2) {
 
-        int difference = getDifference(array1, array2);
+        int difference = getSumDifference(array1, array2);
         if (difference == 0 || difference % 2 != 0) return new int[0];
 
         Set<Integer> map = new HashSet<>();
@@ -79,7 +79,7 @@ public class SumSwap {
         return new int[0];
     }
 
-    private static int getDifference(int[] array1, int[] array2) {
+    private static int getSumDifference(int[] array1, int[] array2) {
         int a1Sum = 0;
         int a2Sum = 0;
         for (int i : array1) {
